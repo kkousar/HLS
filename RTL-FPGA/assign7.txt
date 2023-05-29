@@ -1,0 +1,114 @@
+#include "header.h"
+#include<iostream>
+using namespace std;
+
+#include <fstream>
+
+void fir_fix(stream<coeff> &coeffs, stream<input> &inputs, stream<output> &outputs,int length, int filterLength );
+void fir_float( stream<coefff> &coeffs, stream<inputf> &inputs, stream<outputf> &outputs,int length, int filterLength );
+
+int main(){
+
+	int length=7;
+	int filterLength=6;
+
+	stream<coeff> coeffs;
+	coeff c={1,0,-1,0,1,0,-1};
+	coeffs<<c;
+	
+	stream<coefff> coeffs2;
+	coefff c2={1,0,-1,0,1,0,-1};
+	coeffs2<<c2;
+
+	//fixed point format
+	stream<input> inputs;
+	input i={0.1,0.2,0.4,0.2,0.1};
+	inputs<<i;
+	stream<output> outputs;
+	
+	fir_fix(coeffs,inputs,outputs,length,filterLength);
+	output o1=outputs.read();
+	cout<<"hls code ouput:";	
+	for (int i=0;i<filterLength-1+length;i++){
+		cout<<o1.out[i]<<", ";
+	}
+	cout<<endl;
+	//for floating points
+	stream<inputf> inputs2;
+	inputf i2={0.1,0.2,0.4,0.2,0.1};
+	inputs2<<i2;
+	stream<outputf> outputs2;
+
+	fir_float(coeffs2,inputs2,outputs2,length,filterLength);
+	outputf o2=outputs2.read();
+	cout<<"c code ouput:";
+	for (int i=0;i<filterLength-1+length;i++){
+		cout<<o2.out[i]<<", ";
+		}
+
+}
+
+#include "header.h"
+#include<iostream>
+using namespace std;
+
+#include <fstream>
+
+void fir_fix(stream<coeff> &coeffs, stream<input> &inputs, stream<output> &outputs,int length, int filterLength );
+void fir_float( stream<coefff> &coeffs, stream<inputf> &inputs, stream<outputf> &outputs,int length, int filterLength );
+
+int main(){
+
+
+	int length=10;
+	int filterLength=7;
+
+	fstream in;
+	fstream in2;
+	fstream out;
+	fstream out_fix;
+
+	in.open("input.dat");
+	in2.open("in2.dat");
+	out.open("output.dat");
+	out_fix.open("output_fix.dat");
+
+	stream<inputf> inputs2;
+	inputf i2;
+	stream<outputf> outputs2;
+	stream<coefff> coeffs2;
+	coefff c2={1,0,-1,0,1,0,-1};
+	coeffs2<<c2;
+/*	while(in>>i2.in[0]>>i2.in[1]>>i2.in[2]>>i2.in[3]>>i2.in[4]>>i2.in[5]>>i2.in[6]>>i2.in[7]>>i2.in[8]>>i2.in[9]){
+		inputs2<<i2;
+		fir_float(coeffs2,inputs2,outputs2,length,filterLength);
+				outputf o2=outputs2.read();
+				for (int i=0;i<filterLength-1+length;i++){
+					out<<o2.out[i]<<"\t";
+				}
+
+				out<<endl;
+	}*/
+
+	stream<input> inputs;
+	input i1;
+	stream<output> outputs;
+	stream<coeff> coeffs;
+	coeff c={1,0,-1,0,1,0,-1};
+	coeffs<<c;
+
+	while(in2>>i1.in[0]>>i1.in[1]>>i1.in[2]>>i1.in[3]>>i1.in[4]>>i1.in[5]>>i1.in[6]>>i1.in[7]>>i1.in[8]>>i1.in[9]){
+		inputs<<i1;
+		fir_fix(coeffs,inputs,outputs,length,filterLength);
+				output o=outputs.read();
+				for (int i=0;i<filterLength-1+length;i++){
+					out_fix<<o.out[i]<<"\t";
+				}
+				out_fix<<endl;
+
+	}
+
+in.close();
+out.close();
+
+}
