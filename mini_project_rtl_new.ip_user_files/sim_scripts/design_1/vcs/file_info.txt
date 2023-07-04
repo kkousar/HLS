@@ -1,6 +1,0 @@
-xlconstant_v1_1_vl_rfs.v,verilog,xlconstant_v1_1_3,../../../../mini_project_rtl_new.srcs/sim_1/bd/design_1/ipshared/0750/hdl/xlconstant_v1_1_vl_rfs.v,
-design_1_xlconstant_0_0.v,verilog,xil_defaultlib,../../../bd/design_1/ip/design_1_xlconstant_0_0/sim/design_1_xlconstant_0_0.v,
-design_1.v,verilog,xil_defaultlib,../../../bd/design_1/sim/design_1.v,
-pn_gen.v,verilog,xil_defaultlib,../../../bd/design_1/ipshared/4543/sources_1/new/pn_gen.v,
-design_1_pn_gen_0_1.v,verilog,xil_defaultlib,../../../bd/design_1/ip/design_1_pn_gen_0_1/sim/design_1_pn_gen_0_1.v,
-glbl.v,Verilog,xil_defaultlib,glbl.v
