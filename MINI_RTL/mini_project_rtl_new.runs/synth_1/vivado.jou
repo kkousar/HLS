@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Fri Jun 30 20:46:10 2023
+# Process ID: 10220
+# Current directory: C:/Users/sumu/Desktop/HLS_intro/kousar/mini_project_rtl_new/mini_project_rtl_new.runs/synth_1
+# Command line: vivado.exe -log pn_gen.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source pn_gen.tcl
+# Log file: C:/Users/sumu/Desktop/HLS_intro/kousar/mini_project_rtl_new/mini_project_rtl_new.runs/synth_1/pn_gen.vds
+# Journal file: C:/Users/sumu/Desktop/HLS_intro/kousar/mini_project_rtl_new/mini_project_rtl_new.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source pn_gen.tcl -notrace
