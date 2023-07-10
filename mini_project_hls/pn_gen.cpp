@@ -4,9 +4,6 @@ using namespace hls;
 #include <ap_int.h>
 typedef ap_uint<2> int2_t;
 
-#include <iostream>
-using namespace std;
-
 #define array_size 33
 #define Nc 1600
 
