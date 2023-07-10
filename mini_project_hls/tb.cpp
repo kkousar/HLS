@@ -7,7 +7,6 @@ using namespace std;
 #include <ap_int.h>
 
 typedef ap_uint<2> d_out;
-typedef ap_uint<1> d_bool;
 
 void PN_GEN(int len,stream<d_out> &out, bool &last);
 void printBinary(int num);
